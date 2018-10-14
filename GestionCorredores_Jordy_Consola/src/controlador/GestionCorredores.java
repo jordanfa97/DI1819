@@ -25,6 +25,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import modelo.Corredor;
 import utilidades.Utils;
 import static utilidades.Utils.sdf;
@@ -154,17 +155,8 @@ public class GestionCorredores {
     }
 
     public void cargarColeccion() {
-        if ((fichero == null) || (!fichero.exists())) {
-            System.out.println("Archivo no existe");
-            System.out.println("Creando fichero corredores.csv...");
-            fichero = new File("corredores.csv");
-            try {
-                fw = new FileWriter(fichero);
-            } catch (IOException ex) {
-                Logger.getLogger(GestionCorredores.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
 
+        fichero = new File("corredores_consola.csv");
         try {
 
             //leemos el CSV 
@@ -280,10 +272,8 @@ public class GestionCorredores {
         boolean busquedaObj = false;
 
         Iterator it = corredores.iterator();
-        Corredor corredor;
         while (it.hasNext()) {
             corredor = (Corredor) it.next();
-
             if (corredor.getNombre().equalsIgnoreCase(nombreABuscar)) {
                 it.remove();
                 busquedaObj = true;
@@ -300,9 +290,9 @@ public class GestionCorredores {
     }
 
     public void guardarColeccion() {
-      
+
         try {
-            fw = new FileWriter("corredores.csv");
+            fw = new FileWriter("corredores_consola.csv");
             pw = new PrintWriter(fw);
             for (Corredor c : corredores) {
                 pw.write(c.getNombre() + ",");
