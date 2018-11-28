@@ -7,10 +7,10 @@ package Interfaz;
 
 import Logica.LogicaNegocio;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
@@ -29,6 +29,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource(RUTA_LOGO)).getImage());
         //Establecer el título de la aplicación
         setTitle("App Corredores");
+
+        /*HACER LA VENTANA DE UN TAMAÑO FIJO*/
+        // this.setSize(600, 600);
+        // this.setResizable(false);
     }
 
     /**
@@ -161,6 +165,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                //Si la aplicación es en Español
+                Locale.setDefault(new Locale("es", "ES"));
                 new PantallaPrincipal().setVisible(true);
             }
         });
