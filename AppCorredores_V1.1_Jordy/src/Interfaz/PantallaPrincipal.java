@@ -6,11 +6,17 @@
 package Interfaz;
 
 import Logica.LogicaNegocio;
+import de.javasoft.plaf.synthetica.SyntheticaOrangeMetallicLookAndFeel;
+
 import java.util.List;
 import java.util.Locale;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.table.DefaultTableModel;
+import org.openide.util.Exceptions;
 
 /**
  *
@@ -23,12 +29,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
     public PantallaPrincipal() {
         initComponents();
+        //que aparezca la ventana centrada
+        this.setLocationRelativeTo(null);
         //Establecer una imagen en una label
         jLabelIcono.setIcon(new ImageIcon(getClass().getResource(RUTA_LOGO)));
-        //Establecer el logo del a aplicación
+        //Establecer el logo en el icono pequeño
         setIconImage(new ImageIcon(getClass().getResource(RUTA_LOGO)).getImage());
         //Establecer el título de la aplicación
         setTitle("App Corredores");
+
+        //Instalación de Look And Feel de internet
+        UIManager.installLookAndFeel(new UIManager.LookAndFeelInfo("Orange", SyntheticaOrangeMetallicLookAndFeel.class.getName()));
 
         /*HACER LA VENTANA DE UN TAMAÑO FIJO*/
         // this.setSize(600, 600);
@@ -46,17 +57,28 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jLabelTitulo = new javax.swing.JLabel();
         jLabelIcono = new javax.swing.JLabel();
+        jButonApariencia = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenuCorredores = new javax.swing.JMenu();
         jMenuItemDarAlta = new javax.swing.JMenuItem();
         jMenuItemMenu = new javax.swing.JMenuItem();
         jMenuCarreras = new javax.swing.JMenu();
-        jMenuItemVerCarreras = new javax.swing.JMenuItem();
+        jMenuItemDarAltaCarrera = new javax.swing.JMenuItem();
+        jMenuItemComenzarCarrera = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelTitulo.setText("App Corredores");
+
+        jLabelIcono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/corredor1.jpg"))); // NOI18N
+
+        jButonApariencia.setText("Look And Feel");
+        jButonApariencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButonAparienciaActionPerformed(evt);
+            }
+        });
 
         jMenuCorredores.setText("Corredores");
 
@@ -68,7 +90,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
         jMenuCorredores.add(jMenuItemDarAlta);
 
-        jMenuItemMenu.setText("MENU");
+        jMenuItemMenu.setText("Menu");
         jMenuItemMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemMenuActionPerformed(evt);
@@ -85,8 +107,21 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItemVerCarreras.setText("VerCarreras");
-        jMenuCarreras.add(jMenuItemVerCarreras);
+        jMenuItemDarAltaCarrera.setText("Dar alta carrera");
+        jMenuItemDarAltaCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDarAltaCarreraActionPerformed(evt);
+            }
+        });
+        jMenuCarreras.add(jMenuItemDarAltaCarrera);
+
+        jMenuItemComenzarCarrera.setText("Comenzar carrera");
+        jMenuItemComenzarCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemComenzarCarreraActionPerformed(evt);
+            }
+        });
+        jMenuCarreras.add(jMenuItemComenzarCarrera);
 
         jMenuBar2.add(jMenuCarreras);
 
@@ -97,29 +132,34 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(237, 237, 237)
-                .addComponent(jLabelTitulo)
-                .addContainerGap(254, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addComponent(jLabelTitulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButonApariencia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(215, 215, 215))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(176, 176, 176)
+                .addGap(84, 84, 84)
                 .addComponent(jLabelTitulo)
-                .addGap(34, 34, 34)
+                .addGap(29, 29, 29)
                 .addComponent(jLabelIcono, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jButonApariencia)
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemDarAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDarAltaActionPerformed
-        DialogoAlta dialogoAlta = new DialogoAlta(this, true, logicaNegocio);
+        DialogoAltaCorredor dialogoAlta = new DialogoAltaCorredor(this, true, logicaNegocio);
         dialogoAlta.setVisible(true);
 
 
@@ -133,6 +173,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         DialogoMenu dialogoMenu = new DialogoMenu(this, true, logicaNegocio);
         dialogoMenu.setVisible(true);
     }//GEN-LAST:event_jMenuItemMenuActionPerformed
+
+    private void jButonAparienciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButonAparienciaActionPerformed
+        LookAndFeel laf = new LookAndFeel(this, true);
+        laf.setVisible(true);
+    }//GEN-LAST:event_jButonAparienciaActionPerformed
+
+    private void jMenuItemDarAltaCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDarAltaCarreraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemDarAltaCarreraActionPerformed
+
+    private void jMenuItemComenzarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemComenzarCarreraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemComenzarCarreraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,13 +226,15 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButonApariencia;
     private javax.swing.JLabel jLabelIcono;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenu jMenuCarreras;
     private javax.swing.JMenu jMenuCorredores;
+    private javax.swing.JMenuItem jMenuItemComenzarCarrera;
     private javax.swing.JMenuItem jMenuItemDarAlta;
+    private javax.swing.JMenuItem jMenuItemDarAltaCarrera;
     private javax.swing.JMenuItem jMenuItemMenu;
-    private javax.swing.JMenuItem jMenuItemVerCarreras;
     // End of variables declaration//GEN-END:variables
 }

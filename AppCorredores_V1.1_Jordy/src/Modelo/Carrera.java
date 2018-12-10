@@ -5,6 +5,10 @@
  */
 package Modelo;
 
+import Utilidades.Fechas;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,20 +16,26 @@ import java.util.List;
  *
  * @author Jordy
  */
-public class Carrera {
+public class Carrera implements Serializable {
 
-    private String nombreCarrera = "";
+    private String nombreCarrera;
     private Date fechaCarrera;
     private String lugar;
     private int numMaxCorredores;
     private List<Participante> listaParticipantes;
+    private boolean finalizada;
 
-    public Carrera(String nombreCarrera, Date fechaCarrera, String lugar, int numMaxCorredores, List<Participante> listaParticipantes) {
+    public Carrera() {
+    }
+
+    public Carrera(String nombreCarrera, Date fechaCarrera, String lugar, int numMaxCorredores, boolean finalizada) {
         this.nombreCarrera = nombreCarrera;
         this.fechaCarrera = fechaCarrera;
         this.lugar = lugar;
         this.numMaxCorredores = numMaxCorredores;
-        this.listaParticipantes = listaParticipantes;
+        this.finalizada = finalizada;
+        listaParticipantes = new ArrayList<>();
+        this.finalizada = false;
     }
 
     public String getNombreCarrera() {
@@ -68,9 +78,17 @@ public class Carrera {
         this.listaParticipantes = listaParticipantes;
     }
 
+    public boolean isFinalizada() {
+        return finalizada;
+    }
+
+    public void setFinalizada(boolean finalizada) {
+        this.finalizada = finalizada;
+    }
+
     @Override
     public String toString() {
-        return nombreCarrera + ", " + fechaCarrera + ", " + lugar + ", " + numMaxCorredores;
+        return "Carrera{" + "nombreCarrera=" + nombreCarrera + ", fechaCarrera=" + Fechas.sdf.format(fechaCarrera) + ", lugar=" + lugar + ", numMaxCorredores=" + numMaxCorredores + ", listaParticipantes=" + listaParticipantes + ", finalizada=" + finalizada + '}';
     }
 
 }

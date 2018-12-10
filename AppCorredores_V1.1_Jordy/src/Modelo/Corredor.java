@@ -14,7 +14,7 @@ import java.util.Date;
  *
  * @author Jordy
  */
-public class Corredor implements Comparable<Corredor> {
+public class Corredor implements Comparable<Corredor>, Serializable {
 
     private String nombre;
     private String dni;
@@ -93,12 +93,11 @@ public class Corredor implements Comparable<Corredor> {
     /*public int compareTo(Corredor t1, Corredor t2) {
         return t1.fechaNac.compareTo(t2.fechaNac);
     } */
-    
     /**
      * Si tenemos que trabajar con los atributos en un array de Strings
+     *
      * @return Array de Strings
      */
-    
     public String[] toArrayString() {
         String[] s = new String[5];
         s[0] = nombre;

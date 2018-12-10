@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package tableModels;
 
 /**
  *
@@ -11,6 +11,7 @@ package Modelo;
  *
  * @author Jordy
  */
+import Modelo.Carrera;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -81,14 +82,7 @@ public class TableModelCarreras extends AbstractTableModel {
                 return listaCarreras.get(rowIndex).getLugar();
             case 3:
                 return listaCarreras.get(rowIndex).getNumMaxCorredores();
-            /* case 4:
-                return listaCarreras.get(rowIndex).getListaParticipantes().size();*/
- /* case 4:
-                return listaCarreras.get(rowIndex).getListaParticipantes().get(rowIndex).getDorsal();
-            case 5:
-                return listaCarreras.get(rowIndex).getListaParticipantes().get(rowIndex).getCorredor();
-            case 6:
-                return listaCarreras.get(rowIndex).getListaParticipantes().get(rowIndex).getTiempoLlegada();*/
+    
         }
         return null;
     }

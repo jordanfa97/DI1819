@@ -7,9 +7,10 @@ package Interfaz;
 
 import Logica.LogicaNegocio;
 import Modelo.Corredor;
-import Modelo.TableModelCorredor;
+import tableModels.TableModelCorredor;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -27,7 +28,11 @@ public class DialogoMenu extends javax.swing.JDialog {
     }
 
     private void rellenarTablaCorredores() {
-        jTableTablaCorredores.setModel(new TableModelCorredor(logicaNegocio.getListaCorredores()));
+        TableModelCorredor tmc = new TableModelCorredor(logicaNegocio.getListaCorredores());
+        jTableTablaCorredores.setModel(tmc);
+        //Creamos un objeto que nos ordena la tabla cuando  pinchamos en uno de los campos
+        TableRowSorter<TableModelCorredor> sorter = new TableRowSorter<>(tmc);
+        jTableTablaCorredores.setRowSorter(sorter);
     }
 
     @SuppressWarnings("unchecked")
@@ -154,7 +159,7 @@ public class DialogoMenu extends javax.swing.JDialog {
     private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
         int corredorSeleccionado = jTableTablaCorredores.getSelectedRow();
         Corredor corredorModificar = logicaNegocio.getListaCorredores().get(corredorSeleccionado);
-        DialogoAlta dialogoModificar = new DialogoAlta(this, true, corredorModificar);
+        DialogoAltaCorredor dialogoModificar = new DialogoAltaCorredor(this, true, corredorModificar);
         dialogoModificar.setLocationRelativeTo(null);
         dialogoModificar.setVisible(true);
         rellenarTablaCorredores();

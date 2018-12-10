@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package tableModels;
 
+import Modelo.Corredor;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
@@ -15,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableModelCorredor extends AbstractTableModel {
 
     private final List<Corredor> listaCorredores;
-    private final String[] columnas = {"Nombre", "DNI"};
+    private final String[] columnas = {"Nombre", "DNI", "DIRECCIÓN", "TELÉFONO", "FECHA NACIMIENTO"};
 
     public TableModelCorredor(List<Corredor> listaCorredores) {
         this.listaCorredores = listaCorredores;
@@ -48,6 +49,12 @@ public class TableModelCorredor extends AbstractTableModel {
                 return listaCorredores.get(rowIndex).getNombre();
             case 1:
                 return listaCorredores.get(rowIndex).getDni();
+            case 2:
+                return listaCorredores.get(rowIndex).getDireccion();
+            case 3:
+                return listaCorredores.get(rowIndex).getTelefono();
+            case 4:
+                return listaCorredores.get(rowIndex).getFechaNac();
         }
         return null;
     }

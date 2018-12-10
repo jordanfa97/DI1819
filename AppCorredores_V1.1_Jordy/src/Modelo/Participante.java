@@ -5,19 +5,26 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  *
  * @author Jordy
  */
-public class Participante {
+public class Participante extends Corredor implements Serializable {
 
     private int dorsal;
-    private Corredor corredor;
     private double tiempoLlegada;
 
-    public Participante(int dorsal, Corredor corredor, double tiempoLlegada) {
+    public Participante(int dorsal, double tiempoLlegada) {
         this.dorsal = dorsal;
-        this.corredor = corredor;
+        this.tiempoLlegada = tiempoLlegada;
+    }
+
+    public Participante(int dorsal, double tiempoLlegada, String nombre, String dni, Date fechaNac, String direccion, int telefono) {
+        super(nombre, dni, fechaNac, direccion, telefono);
+        this.dorsal = dorsal;
         this.tiempoLlegada = tiempoLlegada;
     }
 
@@ -27,14 +34,6 @@ public class Participante {
 
     public void setDorsal(int dorsal) {
         this.dorsal = dorsal;
-    }
-
-    public Corredor getCorredor() {
-        return corredor;
-    }
-
-    public void setCorredor(Corredor corredor) {
-        this.corredor = corredor;
     }
 
     public double getTiempoLlegada() {
@@ -47,7 +46,7 @@ public class Participante {
 
     @Override
     public String toString() {
-        return "Participante{" + "dorsal=" + dorsal + ", corredor=" + corredor + ", tiempoLlegada=" + tiempoLlegada + '}';
+        return super.getNombre() + "Participante{" + "dorsal=" + dorsal + ", tiempoLlegada=" + tiempoLlegada + '}';
     }
 
 }

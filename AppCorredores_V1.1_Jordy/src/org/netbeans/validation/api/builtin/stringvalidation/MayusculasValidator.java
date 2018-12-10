@@ -13,7 +13,7 @@ import org.openide.util.NbBundle;
  * @author Jordy
  * Este validador comprueba que la primera letra sea mayúscula.
  */
-public class MayusculaValidator extends StringValidator {
+public class MayusculasValidator extends StringValidator {
     /**
      * Este método valida si la primera letra del string es mayúscula
      * @param problems lista de problemas. Si no añadimos ninguno, la validación

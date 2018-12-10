@@ -6,6 +6,7 @@
 package Logica;
 
 import Interfaz.DialogoMenu;
+import Modelo.Carrera;
 import Utilidades.Fechas;
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,17 +20,23 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Modelo.Corredor;
+import Modelo.Participante;
 import java.awt.Component;
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jordy
  */
-public class LogicaNegocio {
+public class LogicaNegocio implements Serializable {
 
+    private List<Carrera> listaCarreras;
+    private List<Participante> listaParticipantes;
     private List<Corredor> listaCorredores;
     private Corredor corredor;
+    private transient Timer timer;
+    private int minutosGuardado;
     private FileReader fr = null;
     private BufferedReader br = null;
     private FileWriter fw = null;
@@ -38,6 +45,18 @@ public class LogicaNegocio {
 
     public LogicaNegocio() {
         listaCorredores = new ArrayList<Corredor>();
+        listaCarreras = new ArrayList<Carrera>();
+        this.minutosGuardado = 15;
+
+    }
+
+    public int getMinutosGuardado() {
+        return minutosGuardado;
+    }
+
+    public void setMinutosGuardado(int minutosGuardado) {
+        this.minutosGuardado = minutosGuardado;
+        this.guardarAutomaticamente();
     }
 
     public void darAlta(Corredor corredor) {
@@ -50,6 +69,30 @@ public class LogicaNegocio {
 
     public void setListaCorredores(List<Corredor> listaCorredores) {
         this.listaCorredores = listaCorredores;
+    }
+
+    public List<Carrera> getListaCarreras() {
+        return listaCarreras;
+    }
+
+    public void setListaCarreras(List<Carrera> listaCarreras) {
+        this.listaCarreras = listaCarreras;
+    }
+
+    public List<Participante> getListaParticipantes() {
+        return listaParticipantes;
+    }
+
+    public void setListaParticipantes(List<Participante> listaParticipantes) {
+        this.listaParticipantes = listaParticipantes;
+    }
+
+    public Corredor getCorredor() {
+        return corredor;
+    }
+
+    public void setCorredor(Corredor corredor) {
+        this.corredor = corredor;
     }
 
     public void cargarColeccion() {
@@ -123,6 +166,63 @@ public class LogicaNegocio {
             pw.close();
         }
 
+    }
+
+    public void guardarDatos() {
+        GestionArchivos.guardarInstancia(this);
+    }
+
+    private void guardarAutomaticamente() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                guardarDatos();
+            }
+        }, 0, minutosGuardado * 60 * 1000);
+
+    }
+
+    public void anhadirCorredor(Corredor corredor) {
+
+        listaCorredores.add(corredor);
+    }
+
+    public void anhadirCarrera(Carrera carrera) {
+        listaCarreras.add(carrera);
+    }
+
+    public void anhadirParticipante(Participante participante) {
+        listaParticipantes.add(participante);
+    }
+
+    public void borrarParticipante(Participante participante) {
+        if (listaParticipantes.contains(participante)) {
+            listaParticipantes.remove(participante);
+        }
+    }
+
+    public void borrarCorredor(Corredor corredor) {
+        if (listaCorredores.contains(corredor)) {
+            listaCorredores.remove(corredor);
+        }
+    }
+
+    public void borrarCarrera(Carrera carrera) {
+        if (listaCarreras.contains(carrera)) {
+            listaCarreras.remove(carrera);
+        }
+    }
+
+    public boolean anhadirCorredorAcarrera(Corredor corredor, Carrera carrera) {
+
+        int nunDorsal = carrera.getListaParticipantes().size() + 1;
+        int tiempo = 0;
+        Participante participante = new Participante(nunDorsal, tiempo);
+
+        carrera.getListaParticipantes().add(participante);
+
+        return true;
     }
 
 }

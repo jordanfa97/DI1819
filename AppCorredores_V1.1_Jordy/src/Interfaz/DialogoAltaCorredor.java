@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-import org.netbeans.validation.api.builtin.stringvalidation.MayusculaValidator;
+import org.netbeans.validation.api.builtin.stringvalidation.MayusculasValidator;
 import org.netbeans.validation.api.builtin.stringvalidation.StringValidators;
 import org.netbeans.validation.api.ui.ValidationGroup;
 import sun.util.logging.resources.logging;
@@ -24,13 +24,13 @@ import sun.util.logging.resources.logging;
  *
  * @author Jordy
  */
-public class DialogoAlta extends javax.swing.JDialog {
+public class DialogoAltaCorredor extends javax.swing.JDialog {
 
     private LogicaNegocio logicaNegocio;
     private Corredor corredorModificar;
 
 //Constructor para el alta con el corredorModificar null
-    public DialogoAlta(java.awt.Frame parent, boolean modal, LogicaNegocio logicaNegocio) {
+    public DialogoAltaCorredor(java.awt.Frame parent, boolean modal, LogicaNegocio logicaNegocio) {
         super(parent, modal);
         this.logicaNegocio = logicaNegocio;
         initComponents();
@@ -38,7 +38,7 @@ public class DialogoAlta extends javax.swing.JDialog {
         jButtonAceptar.setEnabled(false);
         //Creamos un grupo de validaciones con las restricciones que queremos en cada campo
         ValidationGroup group = validationPanel.getValidationGroup();
-        group.add(jTextFieldNombre, StringValidators.REQUIRE_NON_EMPTY_STRING, new MayusculaValidator());
+        group.add(jTextFieldNombre, StringValidators.REQUIRE_NON_EMPTY_STRING, new MayusculasValidator());
         group.add(jTextFieldDNI, StringValidators.REQUIRE_NON_EMPTY_STRING, StringValidators.NO_WHITESPACE);
         group.add(jTextFieldDireccion, StringValidators.REQUIRE_NON_EMPTY_STRING);
         group.add(jTextFieldTelefono, StringValidators.REQUIRE_VALID_NUMBER);
@@ -62,7 +62,7 @@ public class DialogoAlta extends javax.swing.JDialog {
     //gracias al valor de corredorModificar. Si es null será un alta, si tiene un valor
     //será una modificación.Rellenamos los campos del dialogo cuando seleccionamos un
     //corredor
-    public DialogoAlta(java.awt.Dialog parent, boolean modal, Corredor corredorModificar) {
+    public DialogoAltaCorredor(java.awt.Dialog parent, boolean modal, Corredor corredorModificar) {
         super(parent, modal);
         this.corredorModificar = corredorModificar;
         this.logicaNegocio = logicaNegocio;
@@ -71,7 +71,7 @@ public class DialogoAlta extends javax.swing.JDialog {
         jButtonAceptar.setEnabled(false);
         //Creamos un grupo de validaciones con las restricciones que queremos en cada campo
         ValidationGroup group = validationPanel.getValidationGroup();
-        group.add(jTextFieldNombre, StringValidators.REQUIRE_NON_EMPTY_STRING, new MayusculaValidator());
+        group.add(jTextFieldNombre, StringValidators.REQUIRE_NON_EMPTY_STRING, new MayusculasValidator());
         group.add(jTextFieldDNI, StringValidators.REQUIRE_NON_EMPTY_STRING, StringValidators.NO_WHITESPACE);
         group.add(jTextFieldDireccion, StringValidators.REQUIRE_NON_EMPTY_STRING);
         group.add(jTextFieldTelefono, StringValidators.REQUIRE_VALID_NUMBER);
