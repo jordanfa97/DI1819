@@ -184,7 +184,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemDarAltaCarreraActionPerformed
 
     private void jMenuItemComenzarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemComenzarCarreraActionPerformed
-        // TODO add your handling code here:
+        ComenzarCarrera comenzarCarrera = new ComenzarCarrera(this, true);
+        comenzarCarrera.setVisible(true);
     }//GEN-LAST:event_jMenuItemComenzarCarreraActionPerformed
 
     /**
