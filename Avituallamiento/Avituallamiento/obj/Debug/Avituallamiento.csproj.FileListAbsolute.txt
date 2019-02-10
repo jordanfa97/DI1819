@@ -1,0 +1,17 @@
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\bin\Debug\Avituallamiento.exe.config
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\bin\Debug\Avituallamiento.exe
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\bin\Debug\Avituallamiento.pdb
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\MainWindow.baml
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\MainWindow.g.cs
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\App.g.cs
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Avituallamiento_MarkupCompile.cache
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Avituallamiento.g.resources
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Avituallamiento.Properties.Resources.resources
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Avituallamiento.csproj.GenerateResource.Cache
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Avituallamiento.exe
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Avituallamiento.pdb
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Avituallamiento.csprojResolveAssemblyReference.cache
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Vista\PantallaProducto.baml
+C:\Users\Jordy\documents\visual studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Vista\PantallaProducto.g.cs
+C:\Users\Jordy\Documents\Visual Studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Prueba.baml
+C:\Users\Jordy\Documents\Visual Studio 2012\Projects\Avituallamiento\Avituallamiento\obj\Debug\Prueba.g.cs
