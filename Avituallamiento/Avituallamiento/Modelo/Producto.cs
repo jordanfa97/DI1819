@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Avituallamiento.Modelo
 {
-    public class Producto : INotifyPropertyChanged
+    public class Producto : INotifyPropertyChanged, ICloneable
     {
         private String nombre;
         private String material;
@@ -69,7 +69,14 @@ namespace Avituallamiento.Modelo
             return "Nombre: " + Nombre + "\nTipo material: " + Material + "\nPrecio: " + Precio;
         }
 
-
+        //si se produce un cambio en los objetos deben de avisar los objetos que hubo un cambio en ellos con éste evento
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();  //devolvemos un clon del objeto pero seran dos objetos diferentes
+        }
     }
 }

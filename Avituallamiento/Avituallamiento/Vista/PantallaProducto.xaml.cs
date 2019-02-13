@@ -23,26 +23,53 @@ namespace Avituallamiento.Vista
     {
         public Producto producto { get; set; }
         private LogicaNegocio logicaNegocio;
-        public ObservableCollection<String> tipoMaterial { get; set; }
+        public ObservableCollection<String> listaMateriales { get; set; }
+        private int posicion;
+        private Boolean modificar;
 
+        //constructor para crear producto
         public PantallaProducto(LogicaNegocio LogicaNegocio)
         {
             InitializeComponent();
             this.logicaNegocio = LogicaNegocio;
-            tipoMaterial = new ObservableCollection<string>();
-            tipoMaterial.Add("comida");
-            tipoMaterial.Add("bebida");
-            tipoMaterial.Add("material sanitario");
-            producto=new Producto();
+            listaMateriales = new ObservableCollection<string>();
+            listaMateriales.Add("comida");
+            listaMateriales.Add("bebida");
+            listaMateriales.Add("material sanitario");
+            producto = new Producto();
             this.DataContext = this;
-           
+            modificar = false;
         }
+
+        //Constructor para modificar producto
+        public PantallaProducto(LogicaNegocio logicaNegocio, Producto productoModificar, int posicion)
+        {
+            InitializeComponent();
+            this.logicaNegocio = logicaNegocio;
+            this.producto = productoModificar;
+            this.posicion = posicion;
+            listaMateriales = new ObservableCollection<string>();
+            listaMateriales.Add("Comida");
+            listaMateriales.Add("Bebida");
+            listaMateriales.Add("Material sanitario");
+            this.DataContext = this;
+            modificar = true;
+
+        }
+
 
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
+            if (modificar)
+            {
+                logicaNegocio.modificarProducto(producto, posicion);
+            }
+            else
+            {
+                logicaNegocio.aniadirProducto(producto);
+                MessageBox.Show("Producto añadido");
 
-            logicaNegocio.aniadirProducto(producto);
-            MessageBox.Show("Producto añadido");
+            }
             this.Close();
         }
 
