@@ -1,0 +1,12 @@
+﻿<Window x:Class="AppAvituallamiento.Vista.PantallaCarrera"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PantallaCarrera" Height="349" Width="350">
+    <Grid Margin="0,0,18,17">
+        <DataGrid x:Name="dataGridAvituallamiento" ItemsSource="{Binding Path=listaAvituallamientos}" Margin="10,64,10,0" VerticalAlignment="Top" Height="145"
+                  IsReadOnly="True">
+           
+        </DataGrid>
+
+    </Grid>
+</Window>

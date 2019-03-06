@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -86,6 +87,14 @@ public class GestionCarrera implements Serializable {
         this.listaCarreras = gestionCarrera.getListaCarreras();
         this.carrera = gestionCarrera.getCarrera();
         ois.close();
+    }
+
+    public List<Carrera> listaCarreraInforme(String nombreFichero) throws FileNotFoundException, IOException, ClassNotFoundException {
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(nombreFichero));
+        GestionCarrera gestionCarrera = (GestionCarrera) ois.readObject();
+        this.listaCarreras = gestionCarrera.getListaCarreras();
+        return listaCarreras;
+
     }
 
 }

@@ -22,9 +22,9 @@ import org.openide.util.Exceptions;
  */
 public class DialogoIniciarCarrera extends javax.swing.JDialog implements Serializable {
 
-    GestionCarrera gestionCarrera;
-    Carrera carreraActual;
-    List<Integer> dorsales = new ArrayList<>();
+    private GestionCarrera gestionCarrera;
+    private Carrera carreraActual;
+    private List<Integer> dorsales = new ArrayList<>();
 
     public DialogoIniciarCarrera(java.awt.Dialog parent, boolean modal, GestionCarrera gc, Carrera cActual) {
         super(parent, modal);
@@ -39,7 +39,7 @@ public class DialogoIniciarCarrera extends javax.swing.JDialog implements Serial
         cronometroJLabel2.setLlegada(new Llegada() {
             @Override
             public void ejecutarLlegada(int dorsal, String tiempo) {
-                gc.buscarDorsal(carreraActual, dorsal, tiempo);
+                gestionCarrera.buscarDorsal(carreraActual, dorsal, tiempo);
             }
         });
     }
@@ -130,19 +130,20 @@ public class DialogoIniciarCarrera extends javax.swing.JDialog implements Serial
                             .addComponent(jButtonFinalizarCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonParar, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cronometroJLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cronometroJLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel1)))
                         .addGap(0, 93, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addContainerGap()
                 .addComponent(cronometroJLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

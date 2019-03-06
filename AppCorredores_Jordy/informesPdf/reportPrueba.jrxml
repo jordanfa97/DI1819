@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportPrueba" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dba1e198-c7fb-4a03-bfd4-a350f3f58017">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nombreCarrera" class="java.lang.String">
+		<fieldDescription><![CDATA[nombreCarrera]]></fieldDescription>
+	</field>
+	<field name="lugarCarrera" class="java.lang.String">
+		<fieldDescription><![CDATA[lugarCarrera]]></fieldDescription>
+	</field>
+	<field name="numeroParticipantes" class="java.lang.Integer">
+		<fieldDescription><![CDATA[numeroParticipantes]]></fieldDescription>
+	</field>
+	<field name="finalizada" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[finalizada]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="21" y="2" width="100" height="20" uuid="f775d4be-60d5-44ef-83b8-26ad7a11104e"/>
+				<text><![CDATA[nombreCarrera]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="150" y="2" width="100" height="20" uuid="d0d52e5d-5fb9-4ea9-99e9-44ce55af4b98"/>
+				<text><![CDATA[lugarCarrera]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="2" width="100" height="20" uuid="36466b48-3d03-452b-87e2-1f11574e2f05"/>
+				<text><![CDATA[numeroParticipantes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="2" width="100" height="20" uuid="0b2c7165-a69d-4672-8107-002da9b7bccd"/>
+				<text><![CDATA[finalizada]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="21" y="13" width="100" height="20" uuid="ec9b2e78-05fb-44ef-9ac0-7110a52a2e8c"/>
+				<textFieldExpression><![CDATA[$F{nombreCarrera}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="13" width="100" height="20" uuid="da76fae9-3601-4d32-ae76-12727720af0d"/>
+				<textFieldExpression><![CDATA[$F{lugarCarrera}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="13" width="100" height="20" uuid="91a71bfa-70e3-4c38-bf2d-3c0e163148f1"/>
+				<textFieldExpression><![CDATA[$F{numeroParticipantes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="13" width="100" height="20" uuid="03442e59-5663-4619-8844-9ed228b303e3"/>
+				<textFieldExpression><![CDATA[$F{finalizada}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

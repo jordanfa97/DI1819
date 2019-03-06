@@ -1,0 +1,23 @@
+﻿<Window x:Class="AppAvituallamiento.Vista.PantallaProducto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PantallaProducto" Height="363" Width="457">
+    <Grid RenderTransformOrigin="0.49,0.49" Margin="10,0,12,9">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="labelProducto" Content="Producto" HorizontalAlignment="Left" Margin="129,20,0,0" VerticalAlignment="Top" FontSize="24" FontFamily="Stencil"/>
+        <Label x:Name="labelNombre" Content="Nombre" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.539,0.731"/>
+        <Label x:Name="labelPrecio" Content="Precio" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Width="76"/>
+        <Label x:Name="labelTipo" Content="Tipo" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="86"/>
+        <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="344,291,0,0" VerticalAlignment="Top" Width="75" Click="btnAceptar_Click"/>
+        <TextBox x:Name="tbNombre" Text="{Binding Path=producto.Nombre}" HorizontalAlignment="Left" Height="23" Margin="273,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146"/>
+        <TextBox x:Name="tbPrecio" Text="{Binding Path=producto.Precio}" HorizontalAlignment="Left" Height="23" Margin="273,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146"/>
+        <ComboBox x:Name="comboTipoMaterial" ItemsSource="{Binding Path=listaMateriales }" SelectedItem="{Binding Path=producto.Material}" HorizontalAlignment="Left" Margin="273,207,0,0" VerticalAlignment="Top" Width="146"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="235,291,0,0" VerticalAlignment="Top" Width="85" Click="btnCancelar_Click"/>
+
+    </Grid>
+</Window>
