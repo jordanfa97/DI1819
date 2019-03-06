@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppAvituallamiento.Modelo
 {
-    public class Producto : INotifyPropertyChanged, ICloneable
+    public class Producto : INotifyPropertyChanged, ICloneable, IDataErrorInfo
     {
         private String nombre;
         private String material;
@@ -77,6 +77,44 @@ namespace AppAvituallamiento.Modelo
         public object Clone()
         {
             return this.MemberwiseClone();  //devolvemos un clon del objeto pero seran dos objetos diferentes
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string resultado = "";
+
+                if (columnName == "Nombre")
+                {
+                    if (string.IsNullOrEmpty(nombre))
+                    {
+                        resultado = "Nombre vacío";
+                    }
+                }
+                if (columnName == "Precio")
+                {
+                    if ((precio == 0) && (precio > 0))
+                    {
+                        resultado = "El precio tiene que ser mayor que 0";
+                    }
+                }
+               
+                if (columnName == "Material")
+                {
+                    if (string.IsNullOrEmpty(material))
+                    {
+                        resultado = "Tipo vacío";
+                    }
+                }
+                return resultado;
+            }
+        }
+
+
+        public string Error
+        {
+            get { return ""; }
         }
     }
 }

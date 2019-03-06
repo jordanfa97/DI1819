@@ -16,4 +16,3 @@ C:\Users\Jordy\Desktop\DI1819\AppAvituallamiento\AppAvituallamiento\obj\Debug\Vi
 C:\Users\Jordy\Desktop\DI1819\AppAvituallamiento\AppAvituallamiento\obj\Debug\Vista\PantallaProducto.g.cs
 C:\Users\Jordy\Desktop\DI1819\AppAvituallamiento\AppAvituallamiento\obj\Debug\Vista\PantallaCarrera.baml
 C:\Users\Jordy\Desktop\DI1819\AppAvituallamiento\AppAvituallamiento\obj\Debug\Vista\PantallaCarrera.g.cs
-C:\Users\Jordy\Desktop\DI1819\AppAvituallamiento\AppAvituallamiento\obj\Debug\AppAvituallamiento.csprojResolveAssemblyReference.cache

@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AppAvituallamiento.Modelo
 {
-    public class Avituallamiento
+    public class Avituallamiento : INotifyPropertyChanged, ICloneable
     {
 
         private String nombreCarrera;
         private int km;
         private Persona personaContacto;
-        private ObservableCollection<Producto> listaProductos;
+        public ObservableCollection<Producto> listaProductos { get; set; }
 
 
         //constructor
@@ -27,9 +28,42 @@ namespace AppAvituallamiento.Modelo
         public Avituallamiento() { }
 
         //getter y setter
-        public String NombreCarrera { get; set; }
-        public int Km { get; set; }
-        public Persona PersonaContacto { get; set; }
+        public String NombreCarrera
+        {
+            get
+            {
+                return nombreCarrera;
+            }
+            set
+            {
+                this.nombreCarrera = value;
+                this.PropertyChanged(this, new PropertyChangedEventArgs("NombreCarrera"));
+            }
+        }
+        public int Km
+        {
+            get
+            {
+                return km;
+            }
+            set
+            {
+                this.km = value;
+                this.PropertyChanged(this, new PropertyChangedEventArgs("Km"));
+            }
+        }
+        public Persona PersonaContacto
+        {
+            get
+            {
+                return personaContacto;
+            }
+            set
+            {
+                this.personaContacto = value;
+                this.PropertyChanged(this, new PropertyChangedEventArgs("PersonaContacto"));
+            }
+        }
         public ObservableCollection<Producto> ListaProductos { get; set; }
 
 
@@ -39,5 +73,13 @@ namespace AppAvituallamiento.Modelo
 
             return "Nombre Carrera: " + nombreCarrera + "\nPunto kilométrico: " + km + "\nPersona de contacto: " + personaContacto + "\nProductos: " + listaProductos;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+
     }
 }

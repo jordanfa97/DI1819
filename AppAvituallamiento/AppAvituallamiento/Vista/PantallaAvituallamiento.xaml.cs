@@ -34,7 +34,11 @@ namespace AppAvituallamiento.Vista
             this.persona = new Persona();
             this.avituallamiento = new Avituallamiento();
             dataGrid.DataContext = logicaNegocio;
-            this.DataContext = this;
+            tbNombre.DataContext = persona;
+            tbTelefono.DataContext = persona;
+            tbKilometro.DataContext = avituallamiento;
+            tbNombre.DataContext = avituallamiento;
+            // this.DataContext = this;
         }
         private void btnCrear_Click(object sender, RoutedEventArgs e)
         {
@@ -84,8 +88,7 @@ namespace AppAvituallamiento.Vista
         {
             if (dataGrid.SelectedIndex != -1)
             {
-                avituallamiento.ListaProductos = logicaNegocio.listaProductos;
-                avituallamiento.PersonaContacto = persona;
+                avituallamiento.listaProductos = logicaNegocio.listaProductos;
                 logicaNegocio.listaAvituallamientos.Add(avituallamiento);
                 MessageBox.Show("Se ha creado correctamente");
             }

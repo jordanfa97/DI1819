@@ -27,6 +27,8 @@ namespace AppAvituallamiento.Vista
         public ObservableCollection<String> listaMateriales { get; set; }
         private int posicion;
         private Boolean modificar;
+        private int numErrores = 0;
+        private int indexModificar = -1;
 
         //constructor para crear producto
         public PantallaProducto(LogicaNegocio LogicaNegocio)
@@ -77,6 +79,24 @@ namespace AppAvituallamiento.Vista
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Validation_Error(object sender, ValidationErrorEventArgs e)
+        {
+            if (e.Action == ValidationErrorEventAction.Added)
+            {
+                numErrores++;
+                ((Control)sender).ToolTip = e.Error.ErrorContent;
+            }
+            else if (e.Action == ValidationErrorEventAction.Removed)
+            {
+                numErrores--;
+                ((Control)sender).ToolTip = null;
+            }
+            if (numErrores == 0)
+                btnAceptar.IsEnabled = true;
+            else
+                btnAceptar.IsEnabled = false;
         }
     }
 }

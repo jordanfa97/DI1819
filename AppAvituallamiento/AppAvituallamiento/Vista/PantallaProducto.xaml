@@ -14,9 +14,13 @@
         <Label x:Name="labelPrecio" Content="Precio" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Width="76"/>
         <Label x:Name="labelTipo" Content="Tipo" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top" Width="86"/>
         <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Left" Margin="344,291,0,0" VerticalAlignment="Top" Width="75" Click="btnAceptar_Click"/>
-        <TextBox x:Name="tbNombre" Text="{Binding Path=producto.Nombre}" HorizontalAlignment="Left" Height="23" Margin="273,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146"/>
-        <TextBox x:Name="tbPrecio" Text="{Binding Path=producto.Precio}" HorizontalAlignment="Left" Height="23" Margin="273,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146"/>
-        <ComboBox x:Name="comboTipoMaterial" ItemsSource="{Binding Path=listaMateriales }" SelectedItem="{Binding Path=producto.Material}" HorizontalAlignment="Left" Margin="273,207,0,0" VerticalAlignment="Top" Width="146"/>
+        
+        <TextBox x:Name="tbNombre" Validation.Error="Validation_Error" 
+                 Text="{Binding Path=producto.Nombre, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" HorizontalAlignment="Left" Height="23" Margin="273,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146"/>
+        <TextBox x:Name="tbPrecio" Validation.Error="Validation_Error"
+                 Text="{Binding Path=producto.Precio, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" HorizontalAlignment="Left" Height="23" Margin="273,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="146"/>
+        <ComboBox x:Name="comboTipoMaterial" Validation.Error="Validation_Error" ItemsSource="{Binding Path=listaMateriales }" 
+                  SelectedItem="{Binding Path=producto.Material, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" HorizontalAlignment="Left" Margin="273,207,0,0" VerticalAlignment="Top" Width="146"/>
         <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Margin="235,291,0,0" VerticalAlignment="Top" Width="85" Click="btnCancelar_Click"/>
 
     </Grid>

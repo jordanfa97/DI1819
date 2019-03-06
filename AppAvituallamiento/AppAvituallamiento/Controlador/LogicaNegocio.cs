@@ -21,8 +21,8 @@ namespace AppAvituallamiento.Controlador
             listaProductos.Add(new Producto("pruebaP","kj",23));
             listaCarreras = new ObservableCollection<Carrera>();
             listaAvituallamientos = new ObservableCollection<Avituallamiento>();
-            listaAvituallamientos.Add(new Avituallamiento("pepe",5,new Persona("prueba","iu")));
-            listaAvituallamientos.Add(new Avituallamiento("pepa", 5, new Persona("prueba", "iu")));
+            listaAvituallamientos.Add(new Avituallamiento("prueba",5,new Persona("prueba","iu")));
+           
         }
 
         public void aniadirCarrera(Carrera carrera)
